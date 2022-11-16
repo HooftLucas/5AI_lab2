@@ -9,6 +9,16 @@ def create_image(options: Options) -> torch.Tensor:
     TODO: implement this method
     use options to put the tensor to the correct device.
     """
+    blue = [[0.5021, 0.1138, 0.9047], [0.2843, 0.0684, 0.6829]] #given values of lab2
+    green = [[0.1935, 0.5483, 0.3117], [0.8017, 0.8733, 0.6258]]
+    red =  [[0.5914, 0.6004, 0.2893], [0.7038, 0.5983, 0.9914]]
+    rgb = [red, green, blue]
+    image = torch.FloatTensor(rgb)
+    print(f"RGB image tensor: \n {image}, with shape:{image.shape}. \n")
+
+    print(f"Plotting this tensor: \n ")
+    plot_tensor(image)
+
     return not_implemented()
 
 
