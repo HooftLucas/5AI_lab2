@@ -15,16 +15,19 @@ if __name__ == "__main__":
     dataset.show_examples()
 
     """START TODO: fill in the missing parts"""
+    print(
+        'options.batch_size_test = ', options.batch_size_test, '\n',
+        'options.batch_size_train = ', options.batch_size_train, '\n',
+        'options.lr = ', options.lr, '\n',
+        'options.num_epochs = ', options.num_epochs, '\n',
+        'options.hidden_sizes = ', options.hidden_sizes, '\n',
+        sep=''
+    )
     # create a Classifier instance named model
     model = Classifier(options)
     model.to(options.device)
     # define the opimizer
-    # optimizer = torch.optim.Adam(params=model.parameters(), lr=options.lr)
-    optimizer = torch.optim.SGD(
-        params=model.parameters(),
-        lr=options.lr,
-        momentum=1
-    )
+    optimizer = torch.optim.Adam(params=model.parameters(), lr=options.lr)
     # train the model
     utils.train_classification_model(
         model=model,

@@ -54,11 +54,11 @@ class Classifier(nn.Module):
 
     def forward(self, x: torch.Tensor):
         """START TODO: forward tensor x through all layers."""
-        l1 = self.layer1(x)
-        l2 = self.layer2(l1)
-        l3 = self.layer3(l2)
+        x = self.layer1(x)
+        x = self.layer2(x)
+        x = self.layer3(x)
         """END TODO"""
-        return l3
+        return x
 
 
 class ClassifierVariableLayers(nn.Module):
