@@ -16,11 +16,11 @@ if __name__ == "__main__":
 
     """START TODO: fill in the missing parts"""
     print(
-        'options.batch_size_test = ', options.batch_size_test, '\n',
+        'options.batch_size_test  = ', options.batch_size_test,  '\n',
         'options.batch_size_train = ', options.batch_size_train, '\n',
-        'options.lr = ', options.lr, '\n',
-        'options.num_epochs = ', options.num_epochs, '\n',
-        'options.hidden_sizes = ', options.hidden_sizes, '\n',
+        'options.lr               = ', options.lr,               '\n',
+        'options.num_epochs       = ', options.num_epochs,       '\n',
+        'options.hidden_sizes     = ', options.hidden_sizes,     '\n',
         sep=''
     )
     # create a Classifier instance named model
