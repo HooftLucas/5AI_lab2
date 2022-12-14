@@ -69,7 +69,7 @@ def tensor_network():
     print(f"The gradients are: {weights.grad}")
     """START TODO: implement the update step with a learning rate of 0.5"""
     # use tensor operations, recall the following formula we've seen during class: x <- x - alpha * x'
-    weights = weights - 0.5 *weights.grad*loss
+    weights = weights - 0.9*weights.grad*loss
     """END TODO"""
     print(f"The new weights are: {weights}\n")
 
