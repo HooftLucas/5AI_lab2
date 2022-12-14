@@ -36,18 +36,21 @@ def train_lin_model(model: LinearRegression, optimizer: torch.optim.Optimizer,
     for epoch in range(options.num_epochs):
         for data in train_data:
             size, price = data[:, 0].unsqueeze(1).to(options.device), data[:, 1].unsqueeze(1).to(options.device)
-            """START TODO: implement some missing parts. look at the comments to see what needs to be done."""
             # Forward the size data through the model
+            prediction = model.forward(size)
 
-            # calculate the loss, use your self created mse loss
+            # calculate the loss with the mse function
+            loss = mse(input_tensor=prediction, target=price)
 
-            # As mentioned before, the grads always needs to be zeroed before backprop (use your optimizer to do this)
+            # As mentioned before, the grads always needs to be zeroed before backprop
+            optimizer.zero_grad()
 
             # propagate the loss backward
+            loss.backward()
 
-            # use your optimizer to perform an update step
+            # preform update step with optimizer
+            optimizer.step()
 
-            """END TODO"""
         print(f'epoch [{epoch + 1}/{options.num_epochs}]: ', end="")
         test_lin_reg_model(model, train_data)
 

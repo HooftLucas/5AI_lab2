@@ -1,5 +1,6 @@
 import torch
 from torch.utils.data import DataLoader
+from torch import optim
 
 from utilities import utils
 from datasets.houses_dataset import HousesDataset
@@ -20,16 +21,15 @@ if __name__ == "__main__":
     train_dataloader = DataLoader(train_dataset, options.batch_size_train)
     test_dataloader = DataLoader(test_dataset, options.batch_size_test)
 
-    """START TODO: fill in the missing parts as mentioned by the comments."""
     # create a LinearRegression instance named model
-    model = None
+    model = LinearRegression()
     model.to(options.device)
+
     # define the opimizer
-    # (visit https://pytorch.org/docs/stable/optim.html?highlight=torch%20optim#module-torch.optim for more info)
+    optimizer = optim.SGD(model.parameters(), lr=options.lr, momentum=0.9)
 
     # train the model
-
-    """END TODO"""
+    utils.train_lin_model(model=model, optimizer=optimizer, train_data=train_dataloader, options=options)
 
     # test the model
     print("Testing the model...\n")
